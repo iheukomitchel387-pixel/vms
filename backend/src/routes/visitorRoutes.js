@@ -18,8 +18,8 @@ router
     validate,
     createVisitor
   )
-  .get(getVisitors);
+  .get(authorize('admin', 'receptionist', 'security', 'manager'), getVisitors);
 
-router.get('/:id', getVisitor);
+router.get('/:id', authorize('admin', 'receptionist', 'security', 'manager'), getVisitor);
 
 module.exports = router;

@@ -11,6 +11,12 @@ const visitSchema = new mongoose.Schema(
       enum: ['pre-registered', 'checked-in', 'checked-out', 'cancelled'],
       default: 'pre-registered',
     },
+    approval: {
+      type: String,
+      enum: ['pending', 'accepted', 'declined'],
+      default: 'pending',
+    },
+    walkIn: { type: Boolean, default: false },
     checkInTime: Date,
     checkOutTime: Date,
   },

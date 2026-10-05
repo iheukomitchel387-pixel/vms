@@ -9,8 +9,7 @@ app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json());
-
-// Routes (auth goes first)
+app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/visitors', require('./routes/visitorRoutes'));
